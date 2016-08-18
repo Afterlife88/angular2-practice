@@ -1,0 +1,30 @@
+{
+  "name": "angular2-practice",
+  "version": "1.0.0",
+  "description": "just a practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Afterlife88/angular2-practice.git"
+  },
+  "author": "andrew iasko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Afterlife88/angular2-practice/issues"
+  },
+  "homepage": "https://github.com/Afterlife88/angular2-practice#readme",
+  "dependencies": {
+    "@angular/common": "^2.0.0-rc.5",
+    "@angular/compiler": "^2.0.0-rc.5",
+    "@angular/core": "^2.0.0-rc.5",
+    "@angular/platform-browser": "^2.0.0-rc.5",
+    "@angular/platform-browser-dynamic": "^2.0.0-rc.5",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "^5.0.0-beta.6",
+    "systemjs": "^0.19.36",
+    "zone.js": "^0.6.14"
+  }
+}
