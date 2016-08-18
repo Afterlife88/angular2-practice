@@ -9,23 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var races_cmp_1 = require('./races_cmp');
-var ponies_cmp_1 = require('./ponies_cmp');
-var PonyRacerAppComponent = (function () {
-    function PonyRacerAppComponent() {
+var PoniesComponent = (function () {
+    function PoniesComponent() {
+        this.ponies = [{ name: 'Rainbow Dash' }, { name: 'Pinkie Pie' }];
     }
-    PonyRacerAppComponent.prototype.onNewRace = function () {
-        console.log('boom');
+    PoniesComponent.prototype.refreshPonies = function () {
+        this.ponies = [{ name: 'Fluttershy' }, { name: 'Rarity' }];
     };
-    PonyRacerAppComponent = __decorate([
+    PoniesComponent = __decorate([
         core_1.Component({
-            selector: 'ponyracer-app',
-            template: "\n    <h1>PonyRacer</h1>\n    <ns-ponies></ns-ponies>",
-            directives: [races_cmp_1.RacesComponent, ponies_cmp_1.PoniesComponent]
+            selector: 'ns-ponies',
+            template: "<ul>\n    <button (click)=\"refreshPonies()\">Refresh</button>\n    <li *ngFor=\"let pony of ponies; let isEven=even\"\n    [style.color]=\"isEven ? 'green' : 'black'\">\n    {{pony.name}}\n    </li>\n    </ul>"
         }), 
         __metadata('design:paramtypes', [])
-    ], PonyRacerAppComponent);
-    return PonyRacerAppComponent;
+    ], PoniesComponent);
+    return PoniesComponent;
 }());
-exports.PonyRacerAppComponent = PonyRacerAppComponent;
-//# sourceMappingURL=ponyracer-app.component.js.map
+exports.PoniesComponent = PoniesComponent;
+//# sourceMappingURL=ponies_cmp.js.map

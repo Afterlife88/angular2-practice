@@ -9,23 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var races_cmp_1 = require('./races_cmp');
-var ponies_cmp_1 = require('./ponies_cmp');
-var PonyRacerAppComponent = (function () {
-    function PonyRacerAppComponent() {
+var RacesComponent = (function () {
+    function RacesComponent() {
+        this.races = [{ name: 'London' }, { name: 'Lyon' }];
     }
-    PonyRacerAppComponent.prototype.onNewRace = function () {
-        console.log('boom');
-    };
-    PonyRacerAppComponent = __decorate([
+    RacesComponent = __decorate([
         core_1.Component({
-            selector: 'ponyracer-app',
-            template: "\n    <h1>PonyRacer</h1>\n    <ns-ponies></ns-ponies>",
-            directives: [races_cmp_1.RacesComponent, ponies_cmp_1.PoniesComponent]
+            selector: 'ns-races',
+            template: "<div *ngIf=\"races.length > 0\">\n    <h2>Races</h2>\n    <ul>\n    <li *ngFor=\"let race of races\">{{race.name}}</li>\n    </ul>\n    </div>"
         }), 
         __metadata('design:paramtypes', [])
-    ], PonyRacerAppComponent);
-    return PonyRacerAppComponent;
+    ], RacesComponent);
+    return RacesComponent;
 }());
-exports.PonyRacerAppComponent = PonyRacerAppComponent;
-//# sourceMappingURL=ponyracer-app.component.js.map
+exports.RacesComponent = RacesComponent;
+//# sourceMappingURL=races_cmp.js.map
