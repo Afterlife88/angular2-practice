@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {RacesComponent} from './races_cmp';
 import {PoniesComponent} from './ponies_cmp';
-
+import {RaceService} from '../services/race-service';
 @Component({
     selector: 'ponyracer-app',
     template: `
@@ -10,7 +10,10 @@ import {PoniesComponent} from './ponies_cmp';
     directives: [RacesComponent, PoniesComponent]
 })
 export class PonyRacerAppComponent {
-    onNewRace() {
-       console.log('boom');
+    constructor(private raceService: RaceService) {
+
+    }
+    list() {
+        return this.raceService.list();
     }
 }

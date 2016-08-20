@@ -9,23 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var races_cmp_1 = require('./races_cmp');
-var ponies_cmp_1 = require('./ponies_cmp');
-var PonyRacerAppComponent = (function () {
-    function PonyRacerAppComponent() {
+var race_service_1 = require('../services/race-service');
+var bootstrap_1 = require('../bootstrap');
+var RacesComponent = (function () {
+    function RacesComponent(raceService) {
+        this.raceService = raceService;
     }
-    PonyRacerAppComponent.prototype.onNewRace = function () {
-        console.log('boom');
+    RacesComponent.prototype.list = function () {
+        return this.raceService.list();
     };
-    PonyRacerAppComponent = __decorate([
+    RacesComponent = __decorate([
         core_1.Component({
-            selector: 'ponyracer-app',
-            template: "\n    <h1>PonyRacer</h1>\n    <ns-ponies></ns-ponies>",
-            directives: [races_cmp_1.RacesComponent, ponies_cmp_1.PoniesComponent]
+            selector: 'ns-races',
+            template: "<strong>Races list</strong>",
+            providers: [{ provide: race_service_1.RaceService, useClass: bootstrap_1.FakeRaceService }]
         }), 
-        __metadata('design:paramtypes', [])
-    ], PonyRacerAppComponent);
-    return PonyRacerAppComponent;
+        __metadata('design:paramtypes', [race_service_1.RaceService])
+    ], RacesComponent);
+    return RacesComponent;
 }());
-exports.PonyRacerAppComponent = PonyRacerAppComponent;
-//# sourceMappingURL=ponyracer-app.component.js.map
+exports.RacesComponent = RacesComponent;
+//# sourceMappingURL=races_cmp.js.map

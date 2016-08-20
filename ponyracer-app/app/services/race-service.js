@@ -8,19 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var core_1 = require('@angular/core');
-var RacesComponent = (function () {
-    function RacesComponent() {
-        this.races = [{ name: 'London' }, { name: 'Lyon' }];
+var http_1 = require('@angular/http');
+var RaceService = (function () {
+    function RaceService(http) {
+        this._http = http;
     }
-    RacesComponent = __decorate([
-        core_1.Component({
-            selector: 'ns-races',
-            template: "<div *ngIf=\"races.length > 0\">\n    <h2>Races</h2>\n    <ul>\n    <li *ngFor=\"let race of races\">{{race.name}}</li>\n    </ul>\n    </div>"
-        }), 
-        __metadata('design:paramtypes', [])
-    ], RacesComponent);
-    return RacesComponent;
+    RaceService.prototype.list = function () {
+        return this._http.get('http://localhost:9000/races').map(function (res) { return res.json(); });
+    };
+    RaceService = __decorate([
+        core_1.Injectable(),
+        __param(0, core_1.Inject(http_1.Http)), 
+        __metadata('design:paramtypes', [Object])
+    ], RaceService);
+    return RaceService;
 }());
-exports.RacesComponent = RacesComponent;
-//# sourceMappingURL=races_cmp.js.map
+exports.RaceService = RaceService;
+//# sourceMappingURL=race-service.js.map
